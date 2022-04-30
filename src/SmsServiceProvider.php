@@ -16,7 +16,7 @@ class SmsServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
         $this->publishes([
-            __DIR__.'/../config/playmobile.php' => config_path('playmobile.php'),
+            __DIR__.'/config/playmobile.php' => config_path('playmobile.php'),
         ]);
     }
 
