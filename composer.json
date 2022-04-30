@@ -1,0 +1,29 @@
+{
+    "name": "firefoxuz/laravel-playmobile",
+    "description": "Playmobile SMS service to Laravel project",
+    "type": "package",
+    "require": {
+        "php": "^7.4|^8.0",
+        "guzzlehttp/guzzle": "^7.4.x-dev"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Firefoxuz\\LaravelPlaymobile\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Daler Sultonov",
+            "email": "daler.sultonov.00@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Firefoxuz\\LaravelPlaymobile\\SmsServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev"
+}
