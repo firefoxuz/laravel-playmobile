@@ -22,7 +22,10 @@
         "laravel": {
             "providers": [
                 "Firefoxuz\\LaravelPlaymobile\\PlaymobileServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Playmobile": "Firefoxuz\\LaravelPlaymobile\\Facades\\Playmobile"
+            }
         }
     },
     "minimum-stability": "dev"
