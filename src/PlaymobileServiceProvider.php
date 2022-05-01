@@ -4,7 +4,7 @@ namespace Firefoxuz\LaravelPlaymobile;
 
 use Illuminate\Support\ServiceProvider;
 
-class SmsServiceProvider extends ServiceProvider
+class PlaymobileServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.

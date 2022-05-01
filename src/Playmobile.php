@@ -9,6 +9,6 @@ class Playmobile
 {
     public function send(Main $main)
     {
-        return new SendRequest($main);
+        return SendRequest::handle($main);
     }
 }
