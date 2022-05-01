@@ -12,7 +12,7 @@ class Message
 
     protected ?string $template_id = null;
 
-    protected ?string $priority = null;
+    protected ?string $priority = '';
 
     protected Timing $timing;
 
@@ -129,17 +129,30 @@ class Message
         return $this;
     }
 
+    private function clearNullValue(array $arr)
+    {
+        foreach ($arr as $key => $value) {
+            if ($value === null) {
+                unset($arr[$key]);
+            }
+        }
+
+        return $arr;
+    }
+
     public function toArray()
     {
-        return [
-            'recipient' => $this->getRecipient(),
-            'message-id' => $this->getMessageId(),
-            'template-id' => $this->getTemplateId(),
-            'priority' => $this->getPriority(),
-            'timing' => $this->getTiming()->toArray(),
-            'variables' => $this->getVariables()->toArray(),
+        $arr = [
+            'recipient' => $this->recipient,
+            'message-id' => $this->message_id,
+            'template-id' => $this->template_id,
+            'priority' => $this->priority,
+            'timing' => $this->timing->toArray(),
+            'variables' => $this->variables->toArray(),
             'sms' => $this->getSms()->toArray(),
             'call' => $this->getCall()->toArray(),
         ];
+
+        return $this->clearNullValue($arr);
     }
 }

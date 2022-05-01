@@ -56,16 +56,29 @@ class Main
     {
         return json_encode($this->array());
     }
+
+    private function clearNullValue(array $arr){
+        foreach ($arr as $key => $value) {
+            if ($value === null) {
+                unset($arr[$key]);
+            }
+        }
+
+        return $arr;
+    }
+
     public function array(): array
     {
-        return [
-            'template-id' => $this->template_id,
+        $arr = [
+            'template_id' => $this->template_id,
             'priority' => $this->priority,
             'timing' => $this->timing->toArray(),
             'sms' => $this->sms->toArray(),
             'call' => $this->call->toArray(),
             'messages' => $this->messages->toArray(),
         ];
+
+        return $this->clearNullValue($arr);
     }
 
 }

@@ -104,15 +104,26 @@ class Call
         $this->retry_timeout = $retry_timeout;
     }
 
+    private function clearNullValue(array $arr){
+        foreach ($arr as $key => $value) {
+            if ($value === null) {
+                unset($arr[$key]);
+            }
+        }
+
+        return $arr;
+    }
+
+
     public function toArray(): array
     {
-        return [
+        return $this->clearNullValue([
             'text' => $this->text,
             'file' => $this->file,
             'menu' => $this->menu,
-            'retry-attempts' => $this->retry_attempts,
-            'retry-timeout' => $this->retry_timeout,
-        ];
+            'retry_attempts' => $this->retry_attempts,
+            'retry_timeout' => $this->retry_timeout,
+        ]);
     }
 
 }

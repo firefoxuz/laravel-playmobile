@@ -4,7 +4,7 @@ namespace Firefoxuz\LaravelPlaymobile\Http\Json;
 
 class Sms
 {
-    protected ?string $orginator = null;
+    protected ?string $originator = null;
 
     protected ?int $ttl = null;
 
@@ -28,17 +28,17 @@ class Sms
     /**
      * @return string|null
      */
-    public function getOrginator(): ?string
+    public function getOriginator(): ?string
     {
-        return $this->orginator;
+        return $this->originator;
     }
 
     /**
-     * @param string|null $orginator
+     * @param string|null $originator
      */
-    public function setOrginator(?string $orginator): void
+    public function setOriginator(?string $originator): void
     {
-        $this->orginator = $orginator;
+        $this->orginator = $originator;
     }
 
     public function getTtl(): string
@@ -61,13 +61,24 @@ class Sms
         $this->content = $content;
     }
 
+    private function clearNullValue(array $arr){
+        foreach ($arr as $key => $value) {
+            if ($value === null) {
+                unset($arr[$key]);
+            }
+        }
+
+        return $arr;
+    }
+
+
     public function toArray(): array
     {
-        return [
-            'orginator' => $this->orginator,
+        return $this->clearNullValue([
+            'originator' => $this->originator,
             'ttl' => $this->ttl,
             'content' => $this->content->toArray(),
-        ];
+        ]);
     }
 
 }

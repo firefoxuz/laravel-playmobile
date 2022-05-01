@@ -11,8 +11,9 @@ class SendRequest extends Http
 
     public function handle(Main $main)
     {
-        return self::withBasicAuth(config('platmobile.login'), config('platmobile.password'))
+
+        return self::withBasicAuth(config('playmobile.login'), config('playmobile.password'))
             ->withBody($main->json(), 'application/json')
-            ->post(config('platmobile.base_url') . $this->path);
+            ->post(config('playmobile.base_url') . $this->path)->body();
     }
 }

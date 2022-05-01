@@ -157,9 +157,19 @@ class Timing
         $this->send_evenly = $send_evenly;
     }
 
+    private function clearNullValue(array $arr){
+        foreach ($arr as $key => $value) {
+            if ($value === null) {
+                unset($arr[$key]);
+            }
+        }
+
+        return $arr;
+    }
+
     public function toArray(): array
     {
-        return [
+        $arr = [
             'localtime' => $this->getLocaltime(),
             'start-datetime' => $this->getStartDatetime(),
             'end-datetime' => $this->getEndDatetime(),
@@ -167,5 +177,8 @@ class Timing
             'allowed-endtime' => $this->getAllowedEndtime(),
             'send-evenly' => $this->getSendEvenly(),
         ];
+
+        return $this->clearNullValue($arr);
+
     }
 }
