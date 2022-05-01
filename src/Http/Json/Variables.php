@@ -18,7 +18,8 @@ class Variables
 
     public function addVariable(Variable $variable)
     {
-        $this->variables[] = $variable;
+        $this->variables[$variable->getName()] = $variable->getValue();
+
         return $this;
     }
 
