@@ -21,7 +21,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "PlaymobileServiceProvider"
+                "Firefoxuz\\LaravelPlaymobile\\PlaymobileServiceProvider"
             ]
         }
     },
