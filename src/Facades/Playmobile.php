@@ -10,6 +10,6 @@ class Playmobile extends \Illuminate\Support\Facades\Facade
      */
     protected static function getFacadeAccessor()
     {
-        return \Firefoxuz\LaravelPlaymobile\Playmobile::class;
+        return 'playmobile';
     }
 }

@@ -31,7 +31,7 @@ class PlaymobileServiceProvider extends ServiceProvider
             __DIR__.'/config/playmobile.php', 'playmobile'
         );
 
-        $this->app->singleton(Playmobile::class, function () {
+        $this->app->singleton('playmobile', function () {
             return new Playmobile;
         });
     }
