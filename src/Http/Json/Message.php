@@ -2,7 +2,6 @@
 
 namespace Firefoxuz\LaravelPlaymobile\Http\Json;
 
-use Firefoxuz\LaravelPlaymobile\Exceptions\InvalidBodyException;
 
 class Message
 {
@@ -12,7 +11,7 @@ class Message
 
     protected ?string $template_id = null;
 
-    protected ?string $priority = '';
+    protected ?string $priority = null;
 
     protected Timing $timing;
 
@@ -142,9 +141,9 @@ class Message
 
     private function clearNullArray($arr)
     {
-        foreach ($arr as $array => $value) {
-            if ($array === null) {
-                unset($arr[$array]);
+        foreach ($arr as $key => $value) {
+            if (empty($arr[$key])) {
+                unset($arr[$key]);
             }
         }
 

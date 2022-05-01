@@ -6,9 +6,9 @@ use Firefoxuz\LaravelPlaymobile\Exceptions\InvalidBodyException;
 
 class Main
 {
-    protected string $template_id = '';
+    protected ?string $template_id = null;
 
-    protected string $priority = '';
+    protected ?string $priority = null;
 
     protected Timing $timing;
 
@@ -70,9 +70,9 @@ class Main
 
     private function clearNullArray($arr)
     {
-        foreach ($arr as $array => $value) {
-            if ($array === null) {
-                unset($arr[$array]);
+        foreach ($arr as $key => $value) {
+            if (empty($arr[$key])) {
+                unset($arr[$key]);
             }
         }
 
