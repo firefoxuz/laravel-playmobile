@@ -9,6 +9,11 @@ class Playmobile
 {
     public function send(Main $main)
     {
-        return SendRequest::handle($main);
+        return SendRequest::handle($main->json());
+    }
+
+    public function sendJson(string $json)
+    {
+        return SendRequest::handle($json);
     }
 }

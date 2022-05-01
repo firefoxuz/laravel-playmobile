@@ -9,10 +9,10 @@ class SendRequest extends Http
 {
     const PATH = 'send';
 
-    public static function handle(Main $main)
+    public static function handle(string $json)
     {
         return self::withBasicAuth(config('playmobile.login'), config('playmobile.password'))
-            ->withBody($main->json(), 'application/json')
+            ->withBody($json, 'application/json')
             ->post(config('playmobile.base_url') . self::PATH);
     }
 }
