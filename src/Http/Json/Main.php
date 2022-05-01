@@ -8,7 +8,7 @@ class Main
 {
     protected string $template_id = '';
 
-    protected string $priority = 'normal';
+    protected string $priority = '';
 
     protected Timing $timing;
 
@@ -57,10 +57,22 @@ class Main
         return json_encode($this->array());
     }
 
-    private function clearNullValue(array $arr){
+    private function clearNullValue(array $arr)
+    {
         foreach ($arr as $key => $value) {
             if ($value === null) {
                 unset($arr[$key]);
+            }
+        }
+
+        return $arr;
+    }
+
+    private function clearNullArray($arr)
+    {
+        foreach ($arr as $array => $value) {
+            if ($array === null) {
+                unset($arr[$array]);
             }
         }
 
@@ -78,7 +90,7 @@ class Main
             'messages' => $this->messages->toArray(),
         ];
 
-        return $this->clearNullValue($arr);
+        return $this->clearNullValue($this->clearNullArray($arr));
     }
 
 }

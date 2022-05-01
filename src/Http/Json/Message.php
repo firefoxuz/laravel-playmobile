@@ -140,6 +140,17 @@ class Message
         return $arr;
     }
 
+    private function clearNullArray($arr)
+    {
+        foreach ($arr as $array => $value) {
+            if ($array === null) {
+                unset($arr[$array]);
+            }
+        }
+
+        return $arr;
+    }
+
     public function toArray()
     {
         $arr = [
@@ -153,6 +164,6 @@ class Message
             'call' => $this->getCall()->toArray(),
         ];
 
-        return $this->clearNullValue($arr);
+        return $this->clearNullValue($this->clearNullArray($arr));
     }
 }
