@@ -13,10 +13,8 @@ class PlaymobileServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-
         $this->publishes([
-            __DIR__.'/config/playmobile.php' => config_path('playmobile.php'),
+            __DIR__ . '/config/playmobile.php' => config_path('playmobile.php'),
         ]);
     }
 
@@ -28,10 +26,10 @@ class PlaymobileServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/config/playmobile.php', 'playmobile'
+            __DIR__ . '/config/playmobile.php', 'playmobile'
         );
 
-        $this->app->singleton('playmobile', function () {
+        $this->app->singleton(Playmobile::class, function () {
             return new Playmobile;
         });
     }
