@@ -48,13 +48,14 @@ class Timing
     /**
      * @param int $localtime
      */
-    public function setLocaltime(int $localtime): void
+    public function setLocaltime(int $localtime): self
     {
         if (!in_array($localtime, [0, 1])) {
             throw new InvalidParameterException('Invalid localtime parameter');
         }
 
         $this->localtime = $localtime;
+        return $this;
     }
 
     /**
@@ -68,13 +69,14 @@ class Timing
     /**
      * @param string $start_datetime
      */
-    public function setStartDatetime(string $start_datetime): void
+    public function setStartDatetime(string $start_datetime): self
     {
         if (!$this->dateTimeValidator->isValid($start_datetime, 'Y-m-d H:i')) {
             throw new InvalidParameterException('Invalid start_datetime parameter');
         }
 
         $this->start_datetime = $start_datetime;
+        return $this;
     }
 
     /**
@@ -88,13 +90,14 @@ class Timing
     /**
      * @param string $end_datetime
      */
-    public function setEndDatetime(string $end_datetime): void
+    public function setEndDatetime(string $end_datetime): self
     {
         if (!$this->dateTimeValidator->isValid($end_datetime, 'Y-m-d H:i')) {
             throw new InvalidParameterException('Invalid end_datetime parameter');
         }
 
         $this->end_datetime = $end_datetime;
+        return $this;
     }
 
     /**
@@ -108,12 +111,13 @@ class Timing
     /**
      * @param string $allowed_starttime
      */
-    public function setAllowedStarttime(string $allowed_starttime): void
+    public function setAllowedStarttime(string $allowed_starttime): self
     {
         if (!$this->dateTimeValidator->isValid($allowed_starttime, 'H:i')) {
             throw new InvalidParameterException('Invalid allowed_starttime parameter');
         }
         $this->allowed_starttime = $allowed_starttime;
+        return $this;
     }
 
     /**
@@ -127,13 +131,15 @@ class Timing
     /**
      * @param string $allowed_endtime
      */
-    public function setAllowedEndtime(string $allowed_endtime): void
+    public function setAllowedEndtime(string $allowed_endtime): self
     {
         if (!$this->dateTimeValidator->isValid($allowed_endtime, 'H:i')) {
             throw new InvalidParameterException('Invalid allowed_endtime parameter');
         }
 
         $this->allowed_endtime = $allowed_endtime;
+
+        return $this;
     }
 
 
@@ -148,13 +154,15 @@ class Timing
     /**
      * @param int $send_evenly
      */
-    public function setSendEvenly(int $send_evenly): void
+    public function setSendEvenly(int $send_evenly): self
     {
         if (!in_array($send_evenly, [0, 1])) {
             throw new InvalidParameterException('Invalid send_evenly parameter');
         }
 
         $this->send_evenly = $send_evenly;
+
+        return $this;
     }
 
     private function clearNullValue(array $arr){

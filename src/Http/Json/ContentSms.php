@@ -19,9 +19,11 @@ class ContentSms
     /**
      * @param string $text
      */
-    public function setText(string $text): void
+    public function setText(string $text): self
     {
         $this->text = $text;
+
+        return $this;
     }
 
     /**

@@ -35,9 +35,10 @@ class Call
     /**
      * @param string $text
      */
-    public function setText(string $text): void
+    public function setText(string $text): self
     {
         $this->text = $text;
+        return $this;
     }
 
     /**
@@ -51,9 +52,10 @@ class Call
     /**
      * @param string $file
      */
-    public function setFile(string $file): void
+    public function setFile(string $file): self
     {
         $this->file = $file;
+        return $this;
     }
 
     /**
@@ -67,9 +69,10 @@ class Call
     /**
      * @param string $menu
      */
-    public function setMenu(string $menu): void
+    public function setMenu(string $menu): self
     {
         $this->menu = $menu;
+        return $this;
     }
 
     /**
@@ -83,9 +86,10 @@ class Call
     /**
      * @param int $retry_attempts
      */
-    public function setRetryAttempts(int $retry_attempts): void
+    public function setRetryAttempts(int $retry_attempts): self
     {
         $this->retry_attempts = $retry_attempts;
+        return $this;
     }
 
     /**
@@ -99,12 +103,15 @@ class Call
     /**
      * @param int $retry_timeout
      */
-    public function setRetryTimeout(int $retry_timeout): void
+    public function setRetryTimeout(int $retry_timeout): self
     {
         $this->retry_timeout = $retry_timeout;
+
+        return $this;
     }
 
-    private function clearNullValue(array $arr){
+    private function clearNullValue(array $arr)
+    {
         foreach ($arr as $key => $value) {
             if ($value === null) {
                 unset($arr[$key]);

@@ -36,9 +36,10 @@ class Sms
     /**
      * @param string|null $originator
      */
-    public function setOriginator(?string $originator): void
+    public function setOriginator(?string $originator): self
     {
         $this->orginator = $originator;
+        return $this;
     }
 
     public function getTtl(): string
@@ -46,9 +47,10 @@ class Sms
         return $this->ttl;
     }
 
-    public function setTtl(?int $ttl = null): void
+    public function setTtl(?int $ttl = null): self
     {
         $this->ttl = $ttl;
+        return $this;
     }
 
     public function getContent(): ContentSms
