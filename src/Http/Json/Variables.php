@@ -28,6 +28,13 @@ class Variables
         return $this->variables;
     }
 
+    public function setVariables(array $variables)
+    {
+        $this->variables = $variables;
+
+        return $this;
+    }
+
     public function toArray(): array
     {
         return $this->variables;

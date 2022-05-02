@@ -2,7 +2,6 @@
 
 namespace Firefoxuz\LaravelPlaymobile\Http\Json;
 
-use Firefoxuz\LaravelPlaymobile\Exceptions\InvalidBodyException;
 
 class Main
 {
@@ -37,11 +36,55 @@ class Main
     }
 
     /**
+     * @param string|null $template_id
+     */
+    public function setTemplateId(?string $template_id): void
+    {
+        $this->template_id = $template_id;
+    }
+
+    /**
+     * @param string|null $priority
+     */
+    public function setPriority(?string $priority): void
+    {
+        $this->priority = $priority;
+    }
+
+    /**
+     * @param Timing $timing
+     */
+    public function setTiming(Timing $timing): self
+    {
+        $this->timing = $timing;
+        return $this;
+    }
+
+    /**
+     * @param Sms $sms
+     */
+    public function setSms(Sms $sms): self
+    {
+        $this->sms = $sms;
+        return $this;
+    }
+
+    /**
+     * @param Call $call
+     */
+    public function setCall(Call $call): self
+    {
+        $this->call = $call;
+        return $this;
+    }
+
+    /**
      * @param Messages $messages
      */
-    public function setMessages(Messages $messages): void
+    public function setMessages(Messages $messages): self
     {
         $this->messages = $messages;
+        return $this;
     }
 
     /**

@@ -104,6 +104,13 @@ class Message
         return $this->variables;
     }
 
+    public function setVariables(Variables $variables): self
+    {
+        $this->variables = $variables;
+
+        return $this;
+    }
+
     public function getSms(): ?Sms
     {
         return $this->sms;

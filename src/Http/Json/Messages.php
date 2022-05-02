@@ -23,6 +23,13 @@ class Messages
         return $this;
     }
 
+    public function setMessages(array $messages): self
+    {
+        $this->messages = $messages;
+
+        return $this;
+    }
+
     public function getMessages(): array
     {
         return $this->messages;

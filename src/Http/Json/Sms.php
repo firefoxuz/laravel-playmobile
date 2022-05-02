@@ -56,9 +56,11 @@ class Sms
         return $this->content;
     }
 
-    public function setContent(ContentSms $content): void
+    public function setContent(ContentSms $content): self
     {
         $this->content = $content;
+
+        return $this;
     }
 
     private function clearNullValue(array $arr){
